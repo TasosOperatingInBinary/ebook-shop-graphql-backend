@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  server:
+    build: ./server/
+    restart: always
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    ports:
+      - 8080:8080
+    networks:
+      graphql:
+
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    volumes:
+      - ./db:/data/db
+    networks:
+      graphql:
+
+networks:
+  graphql:

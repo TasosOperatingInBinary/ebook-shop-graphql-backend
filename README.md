@@ -1,0 +1,1 @@
+# GraphQL backend server for an ebook shop
