@@ -1,0 +1,378 @@
+Warehouse
+mutation {
+  addWarehouse (
+    phoneNumber:"2108847651",
+  	city:"Athina",
+    streetName:"Leof.Aleksandras",
+    streetNumber:"151",
+    postalCode:"17123"
+  ) {
+    id
+    phoneNumber
+    city
+    streetName
+    streetNumber
+    postalCode
+  }
+}
+
+mutation {
+  addWarehouse (
+    phoneNumber:"2310776432",
+  	city:"Thessalonikh",
+    streetName:"Tsimiski",
+    streetNumber:"27",
+    postalCode:"53144"
+  ) {
+    id
+    phoneNumber
+    city
+    streetName
+    streetNumber
+    postalCode
+  }
+}
+
+mutation {
+  addWarehouse (
+    phoneNumber:"2310884665",
+  	city:"Thessalonikh",
+    streetName:"Egnatia",
+    streetNumber:"32",
+    postalCode:"54167"
+  ) {
+    id
+    phoneNumber
+    city
+    streetName
+    streetNumber
+    postalCode
+  }
+}
+
+Publisher
+mutation {
+  addPublisher(
+    name:"Ekdoseis Papyros",
+    address:"25hs Martiou 124 - Marousi - Athina",
+    url:"www.ekdpapyros.gr",
+    phoneNumbers:["2103664532", "2108836746"]
+  ) {
+    id
+    name
+    address
+    url
+    phoneNumbers
+  }
+}
+
+mutation {
+  addPublisher(
+    name:"Ekdoseis Anagnwsths",
+    address:"Egnatia 85 - Thessalonikh",
+    url:"www.anagnostis.gr",
+    phoneNumbers:["2310274636", "2310274635"]
+  ) {
+    id
+    name
+    address
+    url
+    phoneNumbers
+  }
+}
+
+mutation {
+  addPublisher(
+    name:"IEEE-USA",
+    address:"NW. Suite 700 Washington DC 20036-4910 USA",
+    url:"www.ieee.org",
+    phoneNumbers:["0010029938742646"]
+  ) {
+    id
+    name
+    address
+    url
+    phoneNumbers
+  }
+}
+
+Customer
+mutation {
+  addCustomer(
+    firstName:"Georgios",
+    lastName:"Karagiannidhs",
+    fathersName:"Xrhstos",
+    city:"Athina",
+    streetName:"Pathsiwn",
+    streetNumber:"175",
+    postalCode:"17121",
+    email:"test1@gmail.com",
+    phoneNumbers:[
+      "2107768894"
+    ]
+  ) {
+    id
+    firstName
+    lastName
+    fathersName
+    email
+    city
+    streetName
+    streetNumber
+    postalCode
+    phoneNumbers
+  }
+}
+
+mutation {
+  addCustomer(
+    firstName:"Antwnios",
+    lastName:"Papapetrou",
+    fathersName:"Kwnstantinos",
+    city:"Athina",
+    streetName:"Khfisias",
+    streetNumber:"221",
+    postalCode:"18164",
+    email:"test2@gmail.com",
+    phoneNumbers:[
+      "2103645867",
+      "2108366485"
+    ]
+  ) {
+    id
+    firstName
+    lastName
+    fathersName
+    email
+    city
+    streetName
+    streetNumber
+    postalCode
+    phoneNumbers
+  }
+}
+
+mutation {
+  addCustomer(
+    firstName:"Eleni",
+    lastName:"Dhmhtriou",
+    fathersName:"Iwannhs",
+    city:"Thessalonikh",
+    streetName:"Tsimiski",
+    streetNumber:"123",
+    postalCode:"54723",
+    email:"test3@gmail.com",
+    phoneNumbers:[
+      "2310446227"
+    ]
+  ) {
+    id
+    firstName
+    lastName
+    fathersName
+    email
+    city
+    streetName
+    streetNumber
+    postalCode
+    phoneNumbers
+  }
+}
+
+mutation {
+  addCustomer(
+    firstName:"Maria",
+    lastName:"Antwniou",
+    fathersName:"Paulos",
+    city:"Thessalonikh",
+    streetName:"Egnatia",
+    streetNumber:"28",
+    postalCode:"54276",
+    email:"test4@gmail.com",
+    phoneNumbers:[
+      "2310884775",
+      "2310838474"
+    ]
+  ) {
+    id
+    firstName
+    lastName
+    fathersName
+    email
+    city
+    streetName
+    streetNumber
+    postalCode
+    phoneNumbers
+  }
+}
+
+mutation {
+  addCustomer(
+    firstName:"Ioannis",
+    lastName:"Papadopoulos",
+    fathersName:"Nikolaos",
+    city:"Thessalonikh",
+    streetName:"Egnatia",
+    streetNumber:"97",
+    postalCode:"54167",
+    email:"test5@gmail.com",
+    phoneNumbers:[
+      "2310993884"
+    ]
+  ) {
+    id
+    firstName
+    lastName
+    fathersName
+    email
+    city
+    streetName
+    streetNumber
+    postalCode
+    phoneNumbers
+  }
+}
+
+mutation {
+  addCustomer(
+    firstName:"Nikolaos",
+    lastName:"Xrhstou",
+    fathersName:"Dhmhtrios",
+    city:"Thessalonikh",
+    streetName:"Papanastasiou",
+    streetNumber:"34",
+    postalCode:"54376",
+    email:"test6@gmail.com",
+    phoneNumbers:[
+      "2310873746"
+    ]
+  ) {
+    id
+    firstName
+    lastName
+    fathersName
+    email
+    city
+    streetName
+    streetNumber
+    postalCode
+    phoneNumbers
+  }
+}
+
+mutation {
+  addCustomer(
+    firstName:"Ioanna",
+    lastName:"Petridou",
+    fathersName:"Xristos",
+    city:"Thessalonikh",
+    streetName:"Papafh",
+    streetNumber:"278",
+    postalCode:"54256",
+    email:"test7@gmail.com",
+    phoneNumbers:[
+      "2310437736"
+    ]
+  ) {
+    id
+    firstName
+    lastName
+    fathersName
+    email
+    city
+    streetName
+    streetNumber
+    postalCode
+    phoneNumbers
+  }
+}
+
+Authors
+mutation {
+  addAuthor1: addAuthor(fullName: "Paulo Coelho", email: "testmail1@gmail.com", bookIds: []) {
+    id
+  }
+  addAuthor2: addAuthor(fullName: "Papadopoulos Xrhstos", email: "testmail2@gmail.com", bookIds: []) {
+    id
+  }
+  addAuthor3: addAuthor(fullName: "Papagewrgiou Aleksandros", email: "testmail3@gmail.com", bookIds: []) {
+    id
+  }
+  addAuthor4: addAuthor(fullName: "Maria Ioannidou", email: "testmail4@gmail.com", bookIds: []) {
+    id
+  }
+  addAuthor5: addAuthor(fullName: "Ioanna Petridou", email: "testmail5@gmail.com", bookIds: []) {
+    id
+  }
+  addAuthor6: addAuthor(fullName: "John Smith", email: "testmail6@gmail.com", bookIds: []) {
+    id
+  }
+  addAuthor7: addAuthor(fullName: "Ian Robert", email: "testmail7@gmail.com", bookIds: []) {
+    id
+  }
+}
+
+Books
+mutation {
+  addBook1: addBook(
+    title:"Mia megalh peripeteia", 
+    ISBN:"978-3-16-148410-0",
+  	publicationYear: 2017,
+    price: 17,
+    availableStock: 5,
+    authorIds:[],
+    publisherId: "61d1fbba74d98f99727a836b",
+    warehouseId: "61d1f93e74d98f99727a835e"
+  ) {
+    id
+  }
+    addBook2: addBook(
+    title:"Ena mysthrio kalokairi", 
+    ISBN:"455-2-32-183774-1",
+  	publicationYear: 2018,
+    price: 22,
+    availableStock: 4,
+    authorIds:[],
+    publisherId: "61d1fbba74d98f99727a836b",
+    warehouseId: "61d1f93e74d98f99727a835e"
+  ) {
+    id
+  }
+      addBook3: addBook(
+    title:"To mystiko bouno", 
+    ISBN:"123-4-23-488574-2",
+  	publicationYear: 2019,
+    price: 19,
+    availableStock: 7,
+    authorIds:[],	
+    publisherId: "61d1fbba74d98f99727a836b",
+    warehouseId: "61d1f93e74d98f99727a835e"
+  ) {
+    id
+  }
+        addBook4: addBook(
+    title:"H Anoiksh", 
+    ISBN:"872-7-14-432001-6",
+  	publicationYear: 2020,
+    price: 13,
+    availableStock: 3,
+    authorIds:[],	
+    publisherId: "61d1fce474d98f99727a8370",
+    warehouseId: "61d1f97e74d98f99727a8360"
+  ) {
+    id
+  }
+          addBook5: addBook(
+    title:"To magiko dwmatio", 
+    ISBN:"303-5-11-277462-9",
+  	publicationYear: 2019,
+    price: 25,
+    availableStock: 11,
+    authorIds:[],	
+    publisherId: "61d1fce474d98f99727a8370",
+    warehouseId: "61d1f97e74d98f99727a8360"
+  ) {
+    id
+  }
+}

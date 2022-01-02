@@ -7,9 +7,9 @@ const bookSchema = new Schema({
     publicationYear: Number,
     price: Number,
     availableStock: Number,
-    authorIds: [String],
-    publisherId: String,
-    warehouseId: String
+    authorIds: [mongoose.ObjectId],
+    publisherId: mongoose.ObjectId,
+    warehouseId: mongoose.ObjectId
 })
 
 module.exports = mongoose.model('book', bookSchema);

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const shoppingBasketSchema = new Schema({
     dateOfPurchase: Date,
-    customerId: String,
+    customerId: mongoose.ObjectId,
 })
 
 module.exports = mongoose.model('shopping_basket', shoppingBasketSchema);

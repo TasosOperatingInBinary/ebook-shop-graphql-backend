@@ -1,4 +1,20 @@
 const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLInt, GraphQLFloat, GraphQLList } = require("graphql");
+const Author = require('../../models/author');
+const Book = require('../../models/book');
+const Customer = require('../../models/customer');
+const Publisher = require('../../models/publisher');
+const ShoppingBasketItem = require('../../models/shopping-basket-item');
+const ShoppingBasket = require('../../models/shopping-basket');
+const Warehouse = require('../../models/warehouse');
+// const { 
+//     AuthorType,
+//     BookType,
+//     CustomerType,
+//     PublisherType,
+//     ShoppingBasketType,
+//     WarehouseType 
+// } = require('../object-types/object-types');
+
 
 const AuthorType = new GraphQLObjectType({
     name: 'Author',
@@ -9,7 +25,12 @@ const AuthorType = new GraphQLObjectType({
         books: {
             type: new GraphQLList(BookType),
             resolve: (parent, args) => {
-                
+                result = []
+                parent.bookIds.forEach(bookId => {
+                    result.push(Book.findById(bookId))
+                });
+
+                return result;
             }
         }
     })
@@ -27,19 +48,24 @@ const BookType = new GraphQLObjectType({
         publisher: { 
             type: PublisherType,
             resolve: (parent, args) => {
-
+                return Publisher.findById(parent.publisherId);
             }
         },
         warehouse: { 
             type: WarehouseType,
             resolve: (parent, args) => {
-
+                return Warehouse.findById(parent.warehouseId)
             }    
         },
         authors: {
             type: new GraphQLList(AuthorType),
             resolve: (parent, args) => {
-                
+                result = []
+                parent.authorIds.forEach(authorId => {
+                    result.push(Author.findById(authorId))
+                });
+
+                return result;
             }
         }
     })
@@ -60,13 +86,13 @@ const CustomerType = new GraphQLObjectType({
         phoneNumbers: {
             type: new GraphQLList(GraphQLString),
             resolve: (parent, args) => {
-
+                return parent.phoneNumbers;
             }
         },
         shoppingBaskets: {
             type: new GraphQLList(ShoppingBasketType),
             resolve: (parent, args) => {
-                
+                return ShoppingBasket.find({ customerId: parent['_id'] });  
             }
         }
     })
@@ -82,47 +108,46 @@ const PublisherType = new GraphQLObjectType({
         phoneNumbers: {
             type: new GraphQLList(GraphQLString),
             resolve: (parent, args) => {
-
+                return parent.phoneNumbers;
             }
         },
         books: {
             type: new GraphQLList(BookType),
             resolve: (parent, args) => {
-                
+                return Book.find({ publisherId: parent['_id']})
             }
         }
     })
 })
 
 const ShoppingBasketItemType = new GraphQLObjectType({
-    name: 'Shopping Basket Item',
+    name: 'ShoppingBasketItem',
     fields: () => ({
         book: { 
             type: BookType,
             resolve: (parent, args) => {
-
-            } 
-
+                return Book.findById(parent.bookId);
+            }
         },
         finalPrice: { type: GraphQLFloat }
     })
 })
 
 const ShoppingBasketType = new GraphQLObjectType({
-    name: 'Shopping Basket',
+    name: 'ShoppingBasket',
     fields: () => ({
         id: { type: GraphQLID },
-        dateOfPurchase: { type: GraphQLDate },
+        dateOfPurchase: { type: GraphQLString },
         customer: {
             type: CustomerType,
             resolve: (parent, args) => {
-
+                return Customer.findById(parent.customerId);
             }
         },
         items: {
             type: new GraphQLList(ShoppingBasketItemType),
             resolve: (parent, args) => {
-                
+                return ShoppingBasketItem.find({shoppingBasketId: parent['_id']});
             }
         }
     })
@@ -140,8 +165,10 @@ const WarehouseType = new GraphQLObjectType({
         books: {
             type: new GraphQLList(BookType),
             resolve: (parent, args) => {
-                
+                return Book.find({warehouseId: parent['_id']});
             }
         }
     })
 })
+
+module.exports = { AuthorType, BookType, CustomerType, PublisherType, ShoppingBasketItemType, ShoppingBasketType, WarehouseType }

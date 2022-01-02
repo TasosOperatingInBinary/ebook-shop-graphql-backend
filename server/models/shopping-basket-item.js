@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const shoppingBasketItemSchema = new Schema({
-    bookId: String,
-    shoppingBasketId: String,
+    bookId: mongoose.ObjectId,
+    shoppingBasketId: mongoose.ObjectId,
     finalPrice: Number
 })
 
