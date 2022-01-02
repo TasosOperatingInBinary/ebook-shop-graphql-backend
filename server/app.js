@@ -1,9 +1,19 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+const { graphqlHTTP } = require("express-graphql");
+const mongoose = require("mongoose");
+
+const schema = require("./graphql/schema/schema");
 
 const app = express();
 
-mongoose.connect('mongodb://mongo:27017');
-mongoose.connection.once('open', () => { console.log('connected to database') });
+mongoose.connect("mongodb://mongo:27017");
+mongoose.connection.once("open", () => {
+  console.log("connected to database");
 
-app.listen('8080', () => console.log('listening on port 8080'));
+  app.use("/graphql", graphqlHTTP({
+    schema,
+    graphiql: true,
+  }));  
+
+  app.listen("8080", () => console.log("listening on port 8080"));
+});

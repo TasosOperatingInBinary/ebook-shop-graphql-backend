@@ -4,6 +4,7 @@
   "description": "GraphQL backend server for an ebook shop",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tasos Papadopoulos",
@@ -12,6 +13,7 @@
     "express": "^4.17.2",
     "express-graphql": "^0.12.0",
     "graphql": "^15.8.0",
+    "graphql-date": "^1.0.3",
     "mongoose": "^6.1.4"
   }
 }
