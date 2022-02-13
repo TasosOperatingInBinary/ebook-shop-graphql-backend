@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const shoppingBasketSchema = new Schema({
-    dateOfPurchase: Date,
-    customerId: mongoose.ObjectId,
+    _id: String,
+    dateOfPurchase: String,
+    customerId: String,
 })
 
 module.exports = mongoose.model('shopping_basket', shoppingBasketSchema);

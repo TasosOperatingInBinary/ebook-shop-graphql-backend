@@ -6,15 +6,6 @@ const Publisher = require('../../models/publisher');
 const ShoppingBasketItem = require('../../models/shopping-basket-item');
 const ShoppingBasket = require('../../models/shopping-basket');
 const Warehouse = require('../../models/warehouse');
-// const { 
-//     AuthorType,
-//     BookType,
-//     CustomerType,
-//     PublisherType,
-//     ShoppingBasketType,
-//     WarehouseType 
-// } = require('../object-types/object-types');
-
 
 const AuthorType = new GraphQLObjectType({
     name: 'Author',
@@ -120,6 +111,7 @@ const PublisherType = new GraphQLObjectType({
     })
 })
 
+// TODO see if shopping basket item needs to be removed from here
 const ShoppingBasketItemType = new GraphQLObjectType({
     name: 'ShoppingBasketItem',
     fields: () => ({

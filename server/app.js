@@ -6,7 +6,7 @@ const schema = require("./graphql/schema/schema");
 
 const app = express();
 
-mongoose.connect("mongodb://mongo:27017"); // TODO add database name after port number like /ebook-shop
+mongoose.connect("mongodb://mongo:27017/ebook-shop");
 mongoose.connection.once("open", () => {
   console.log("connected to database");
 

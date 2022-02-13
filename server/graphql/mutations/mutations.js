@@ -22,11 +22,14 @@ const Mutation = new GraphQLObjectType({
         addAuthor: {
             type: AuthorType,
             args: {
+                id: { type: GraphQLID },
                 fullName: { type: GraphQLString },
                 email: { type: GraphQLString },
                 bookIds: { type: new GraphQLList(GraphQLID) }
             },
             resolve: (parent, args) => {
+                args._id = args.id;
+                delete args.id;
                 let author = new Author({
                     ...args
                 })
@@ -45,16 +48,19 @@ const Mutation = new GraphQLObjectType({
         addBook: {
             type: BookType,
             args: {
+                id: { type: GraphQLID },
                 title: { type: GraphQLString },
                 ISBN: { type: GraphQLString },
                 publicationYear: { type: GraphQLInt },
                 price: { type: GraphQLFloat },
                 availableStock: { type: GraphQLInt },
-                authorIds: { type: new GraphQLList(GraphQLID)},
+                authorIds: { type: new GraphQLList(GraphQLID) },
                 publisherId: { type: GraphQLID },
-                warehouseId: { type: GraphQLID }
+                warehouseId: { type: GraphQLID },
             },
             resolve: (parent, args) => {
+                args._id = args.id;
+                delete args.id;
                 let book = new Book({
                     ...args
                 })
@@ -73,6 +79,7 @@ const Mutation = new GraphQLObjectType({
         addCustomer: {
             type: CustomerType,
             args: {
+                id: { type: GraphQLID },
                 firstName: { type: GraphQLString },
                 lastName: { type: GraphQLString },
                 fathersName: { type: GraphQLString },
@@ -84,6 +91,8 @@ const Mutation = new GraphQLObjectType({
                 phoneNumbers: { type: new GraphQLList(GraphQLString) }
             },
             resolve: (parent, args) => {
+                args._id = args.id;
+                delete args.id;
                 let customer = new Customer({
                     ...args
                 })
@@ -102,12 +111,15 @@ const Mutation = new GraphQLObjectType({
         addPublisher: {
             type: PublisherType,
             args: {
+                id: { type: GraphQLID },
                 name: { type: GraphQLString },
                 address : { type: GraphQLString },
                 url: { type: GraphQLString },
                 phoneNumbers: { type: new GraphQLList(GraphQLString) },
             },
             resolve: (parent, args) => {
+                args._id = args.id;
+                delete args.id;
                 let publisher = new Publisher({
                     ...args
                 })
@@ -149,10 +161,13 @@ const Mutation = new GraphQLObjectType({
         addShoppingBasket: {
             type: ShoppingBasketType,
             args: {
+                id: { type: GraphQLID },
                 dateOfPurchase: { type: GraphQLString },
-                customerId: { type: GraphQLID }
+                customerId: { type: GraphQLID },
             },
             resolve: (parent, args) => {
+                args._id = args.id;
+                delete args.id;
                 let shoppingBasket = new ShoppingBasket({
                     ...args
                 })
@@ -171,6 +186,7 @@ const Mutation = new GraphQLObjectType({
         addWarehouse: {
             type: WarehouseType,
             args: {
+                id: { type: GraphQLID },
                 phoneNumber: { type: GraphQLString },
                 city: { type: GraphQLString },
                 streetName: { type: GraphQLString },
@@ -178,6 +194,8 @@ const Mutation = new GraphQLObjectType({
                 postalCode: { type: GraphQLString }
             },
             resolve: (parent, args) => {
+                args._id = args.id;
+                delete args.id;
                 let warehouse = new Warehouse({
                     ...args
                 })

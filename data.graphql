@@ -1,6 +1,6 @@
-Warehouse
 mutation {
-  addWarehouse (
+  addWarehouse1: addWarehouse (
+    id: 1,
     phoneNumber:"2108847651",
   	city:"Athina",
     streetName:"Leof.Aleksandras",
@@ -8,16 +8,10 @@ mutation {
     postalCode:"17123"
   ) {
     id
-    phoneNumber
-    city
-    streetName
-    streetNumber
-    postalCode
   }
-}
 
-mutation {
-  addWarehouse (
+  addWarehouse2: addWarehouse (
+    id: 2,
     phoneNumber:"2310776432",
   	city:"Thessalonikh",
     streetName:"Tsimiski",
@@ -25,16 +19,10 @@ mutation {
     postalCode:"53144"
   ) {
     id
-    phoneNumber
-    city
-    streetName
-    streetNumber
-    postalCode
   }
-}
 
-mutation {
-  addWarehouse (
+  addWarehouse3: addWarehouse (
+    id: 3,
     phoneNumber:"2310884665",
   	city:"Thessalonikh",
     streetName:"Egnatia",
@@ -42,63 +30,136 @@ mutation {
     postalCode:"54167"
   ) {
     id
-    phoneNumber
-    city
-    streetName
-    streetNumber
-    postalCode
   }
-}
 
-Publisher
-mutation {
-  addPublisher(
+  addBook1: addBook(
+    id: 1,
+    title:"Mia megalh peripeteia", 
+    ISBN:"978-3-16-148410-0",
+  	publicationYear: 2017,
+    price: 17,
+    availableStock: 5,
+    authorIds:[2, 4],
+    publisherId: 1,
+    warehouseId: 1
+  ) {
+    id
+  }
+
+  addBook2: addBook(
+    id: 2,
+    title:"Ena mysthrio kalokairi", 
+    ISBN:"455-2-32-183774-1",
+  	publicationYear: 2018,
+    price: 22,
+    availableStock: 4,
+    authorIds:[3, 5, 4],
+    publisherId: 1,
+    warehouseId: 1
+  ) {
+    id
+  }
+
+  addBook3: addBook(
+    id: 3,
+    title:"To mystiko bouno", 
+    ISBN:"123-4-23-488574-2",
+  	publicationYear: 2019,
+    price: 19,
+    availableStock: 7,
+    authorIds:[1],	
+    publisherId: 1,
+    warehouseId: 1
+  ) {
+    id
+  }
+
+  addBook4: addBook(
+    id: 4,
+    title:"H Anoiksh", 
+    ISBN:"872-7-14-432001-6",
+  	publicationYear: 2020,
+    price: 13,
+    availableStock: 3,
+    authorIds:[2, 4],	
+    publisherId: 2,
+    warehouseId: 2
+  ) {
+    id
+  }
+  
+  addBook5: addBook(
+    id: 5,
+    title:"To magiko dwmatio", 
+    ISBN:"303-5-11-277462-9",
+  	publicationYear: 2019,
+    price: 25,
+    availableStock: 11,
+    authorIds:[5, 4],	
+    publisherId: 2,
+    warehouseId: 3
+  ) {
+    id
+  }
+
+  addBook6: addBook(
+    id: 6,
+    title: "Programming in Python",
+    ISBN: "132-4-22-488574-6",
+    publicationYear: 2019,
+    price: 34,
+    availableStock: 16,
+    authorIds: [6, 7],
+    publisherId: 3,
+    warehouseId: 3
+  ) {
+    id
+  }
+
+  addBook7: addBook(
+    id: 7,
+    title: "Programming in Java",
+    ISBN: "726-3-44-288374-5",
+    publicationYear: 2020,
+    price: 42,
+    availableStock: 21,
+    authorIds: [6, 7],
+    publisherId: 3,
+    warehouseId: 3
+  )
+
+  addPublisher1: addPublisher(
+    id: 1,
     name:"Ekdoseis Papyros",
     address:"25hs Martiou 124 - Marousi - Athina",
     url:"www.ekdpapyros.gr",
     phoneNumbers:["2103664532", "2108836746"]
   ) {
     id
-    name
-    address
-    url
-    phoneNumbers
   }
-}
 
-mutation {
-  addPublisher(
+  addPublisher2: addPublisher(
+    id: 2,
     name:"Ekdoseis Anagnwsths",
     address:"Egnatia 85 - Thessalonikh",
     url:"www.anagnostis.gr",
     phoneNumbers:["2310274636", "2310274635"]
   ) {
     id
-    name
-    address
-    url
-    phoneNumbers
   }
-}
 
-mutation {
-  addPublisher(
+  addPublisher3: addPublisher(
+    id: 3,
     name:"IEEE-USA",
     address:"NW. Suite 700 Washington DC 20036-4910 USA",
     url:"www.ieee.org",
     phoneNumbers:["0010029938742646"]
   ) {
     id
-    name
-    address
-    url
-    phoneNumbers
   }
-}
 
-Customer
-mutation {
-  addCustomer(
+  addCustomer1: addCustomer(
+    id: 1,
     firstName:"Georgios",
     lastName:"Karagiannidhs",
     fathersName:"Xrhstos",
@@ -107,25 +168,13 @@ mutation {
     streetNumber:"175",
     postalCode:"17121",
     email:"test1@gmail.com",
-    phoneNumbers:[
-      "2107768894"
-    ]
+    phoneNumbers:["2107768894"]
   ) {
     id
-    firstName
-    lastName
-    fathersName
-    email
-    city
-    streetName
-    streetNumber
-    postalCode
-    phoneNumbers
   }
-}
 
-mutation {
-  addCustomer(
+  addCustomer2: addCustomer(
+    id: 2,
     firstName:"Antwnios",
     lastName:"Papapetrou",
     fathersName:"Kwnstantinos",
@@ -134,26 +183,13 @@ mutation {
     streetNumber:"221",
     postalCode:"18164",
     email:"test2@gmail.com",
-    phoneNumbers:[
-      "2103645867",
-      "2108366485"
-    ]
+    phoneNumbers:["2103645867", "2108366485"]
   ) {
     id
-    firstName
-    lastName
-    fathersName
-    email
-    city
-    streetName
-    streetNumber
-    postalCode
-    phoneNumbers
   }
-}
 
-mutation {
-  addCustomer(
+  addCustomer3: addCustomer(
+    id: 3,
     firstName:"Eleni",
     lastName:"Dhmhtriou",
     fathersName:"Iwannhs",
@@ -162,25 +198,13 @@ mutation {
     streetNumber:"123",
     postalCode:"54723",
     email:"test3@gmail.com",
-    phoneNumbers:[
-      "2310446227"
-    ]
+    phoneNumbers:["2310446227"]
   ) {
     id
-    firstName
-    lastName
-    fathersName
-    email
-    city
-    streetName
-    streetNumber
-    postalCode
-    phoneNumbers
   }
-}
 
-mutation {
-  addCustomer(
+  addCustomer4: addCustomer(
+    id: 4,
     firstName:"Maria",
     lastName:"Antwniou",
     fathersName:"Paulos",
@@ -189,26 +213,13 @@ mutation {
     streetNumber:"28",
     postalCode:"54276",
     email:"test4@gmail.com",
-    phoneNumbers:[
-      "2310884775",
-      "2310838474"
-    ]
+    phoneNumbers:["2310884775", "2310838474"]
   ) {
     id
-    firstName
-    lastName
-    fathersName
-    email
-    city
-    streetName
-    streetNumber
-    postalCode
-    phoneNumbers
   }
-}
 
-mutation {
-  addCustomer(
+  addCustomer5: addCustomer(
+    id: 5,
     firstName:"Ioannis",
     lastName:"Papadopoulos",
     fathersName:"Nikolaos",
@@ -217,25 +228,13 @@ mutation {
     streetNumber:"97",
     postalCode:"54167",
     email:"test5@gmail.com",
-    phoneNumbers:[
-      "2310993884"
-    ]
+    phoneNumbers:["2310993884"]
   ) {
     id
-    firstName
-    lastName
-    fathersName
-    email
-    city
-    streetName
-    streetNumber
-    postalCode
-    phoneNumbers
   }
-}
 
-mutation {
-  addCustomer(
+  addCustomer6: addCustomer(
+    id: 6,
     firstName:"Nikolaos",
     lastName:"Xrhstou",
     fathersName:"Dhmhtrios",
@@ -244,25 +243,13 @@ mutation {
     streetNumber:"34",
     postalCode:"54376",
     email:"test6@gmail.com",
-    phoneNumbers:[
-      "2310873746"
-    ]
+    phoneNumbers:["2310873746"]
   ) {
     id
-    firstName
-    lastName
-    fathersName
-    email
-    city
-    streetName
-    streetNumber
-    postalCode
-    phoneNumbers
   }
-}
 
-mutation {
-  addCustomer(
+  addCustomer7: addCustomer(
+    id: 7,
     firstName:"Ioanna",
     lastName:"Petridou",
     fathersName:"Xristos",
@@ -271,108 +258,307 @@ mutation {
     streetNumber:"278",
     postalCode:"54256",
     email:"test7@gmail.com",
-    phoneNumbers:[
-      "2310437736"
-    ]
+    phoneNumbers:["2310437736"]
   ) {
     id
-    firstName
-    lastName
-    fathersName
-    email
-    city
-    streetName
-    streetNumber
-    postalCode
-    phoneNumbers
   }
-}
 
-Authors
-mutation {
-  addAuthor1: addAuthor(fullName: "Paulo Coelho", email: "testmail1@gmail.com", bookIds: []) {
+  addAuthor1: addAuthor(
+    id: 1,
+    fullName: "Paulo Coelho", 
+    email: "testmail1@gmail.com", 
+    bookIds: [3]
+  ) {
     id
   }
-  addAuthor2: addAuthor(fullName: "Papadopoulos Xrhstos", email: "testmail2@gmail.com", bookIds: []) {
-    id
-  }
-  addAuthor3: addAuthor(fullName: "Papagewrgiou Aleksandros", email: "testmail3@gmail.com", bookIds: []) {
-    id
-  }
-  addAuthor4: addAuthor(fullName: "Maria Ioannidou", email: "testmail4@gmail.com", bookIds: []) {
-    id
-  }
-  addAuthor5: addAuthor(fullName: "Ioanna Petridou", email: "testmail5@gmail.com", bookIds: []) {
-    id
-  }
-  addAuthor6: addAuthor(fullName: "John Smith", email: "testmail6@gmail.com", bookIds: []) {
-    id
-  }
-  addAuthor7: addAuthor(fullName: "Ian Robert", email: "testmail7@gmail.com", bookIds: []) {
-    id
-  }
-}
 
-Books
-mutation {
-  addBook1: addBook(
-    title:"Mia megalh peripeteia", 
-    ISBN:"978-3-16-148410-0",
-  	publicationYear: 2017,
-    price: 17,
-    availableStock: 5,
-    authorIds:[],
-    publisherId: "61d1fbba74d98f99727a836b",
-    warehouseId: "61d1f93e74d98f99727a835e"
+  addAuthor2: addAuthor(
+    id: 2,
+    fullName: "Papadopoulos Xrhstos", 
+    email: "testmail2@gmail.com", 
+    bookIds: [1, 4]
   ) {
     id
   }
-    addBook2: addBook(
-    title:"Ena mysthrio kalokairi", 
-    ISBN:"455-2-32-183774-1",
-  	publicationYear: 2018,
-    price: 22,
-    availableStock: 4,
-    authorIds:[],
-    publisherId: "61d1fbba74d98f99727a836b",
-    warehouseId: "61d1f93e74d98f99727a835e"
+
+  addAuthor3: addAuthor(
+    id: 3,
+    fullName: "Papagewrgiou Aleksandros", 
+    email: "testmail3@gmail.com", 
+    bookIds: [2]
   ) {
     id
   }
-      addBook3: addBook(
-    title:"To mystiko bouno", 
-    ISBN:"123-4-23-488574-2",
-  	publicationYear: 2019,
-    price: 19,
-    availableStock: 7,
-    authorIds:[],	
-    publisherId: "61d1fbba74d98f99727a836b",
-    warehouseId: "61d1f93e74d98f99727a835e"
+
+  addAuthor4: addAuthor(
+    id: 4,
+    fullName: "Maria Ioannidou", 
+    email: "testmail4@gmail.com", 
+    bookIds: [1, 2, 4, 5]
   ) {
     id
   }
-        addBook4: addBook(
-    title:"H Anoiksh", 
-    ISBN:"872-7-14-432001-6",
-  	publicationYear: 2020,
-    price: 13,
-    availableStock: 3,
-    authorIds:[],	
-    publisherId: "61d1fce474d98f99727a8370",
-    warehouseId: "61d1f97e74d98f99727a8360"
+
+  addAuthor5: addAuthor(
+    id: 5,
+    fullName: "Ioanna Petridou", 
+    email: "testmail5@gmail.com", 
+    bookIds: [2, 5]
   ) {
     id
   }
-          addBook5: addBook(
-    title:"To magiko dwmatio", 
-    ISBN:"303-5-11-277462-9",
-  	publicationYear: 2019,
-    price: 25,
-    availableStock: 11,
-    authorIds:[],	
-    publisherId: "61d1fce474d98f99727a8370",
-    warehouseId: "61d1f97e74d98f99727a8360"
+
+  addAuthor6: addAuthor(
+    id: 6,
+    fullName: "John Smith", 
+    email: "testmail6@gmail.com", 
+    bookIds: [6, 7]
   ) {
     id
   }
+
+  addAuthor7: addAuthor(
+    id: 7,
+    fullName: "Ian Robert", 
+    email: "testmail7@gmail.com", 
+    bookIds: [6 , 7]
+  ) {
+    id
+  }
+
+  addShoppingBasket1: addShoppingBasket(
+    id: 1,
+    customerId: 1,
+    dateOfPurchase: "2020-04-20",
+  ) {
+    id
+  }
+
+  addShoppingBasket2: addShoppingBasket(
+    id: 2,
+    customerId: 2,
+    dateOfPurchase: "2020-03-14",
+  ) {
+    id
+  }
+
+  addShoppingBasket3: addShoppingBasket(
+    id: 3,
+    customerId: 1,
+    dateOfPurchase: "2020-08-15",
+  ) {
+    id
+  } 
+
+  addShoppingBasket4: addShoppingBasket(
+    id: 4,
+    customerId: 3,
+    dateOfPurchase: "2020-10-17",
+  ) {
+    id
+  }
+
+  addShoppingBasket5: addShoppingBasket(
+    id: 5,
+    customerId: 4,
+    dateOfPurchase: "2020-11-22",
+  ) {
+    id
+  }
+
+  addShoppingBasket6: addShoppingBasket(
+    id: 6,
+    customerId: 4,
+    dateOfPurchase: "2020-12-18",
+  ) {
+    id
+  }
+
+  addShoppingBasket7: addShoppingBasket(
+    id: 7,
+    customerId: 5,
+    dateOfPurchase: "2021-01-08",
+  ) {
+    id
+  }
+
+  addShoppingBasket8: addShoppingBasket(
+    id: 8,
+    customerId: 6,
+    dateOfPurchase: "2021-01-16",
+  ) {
+    id
+  }
+
+  addShoppingBasket9: addShoppingBasket(
+    id: 9,
+    customerId: 7,
+    dateOfPurchase: "2020-09-23",
+  ) {
+    id
+  }
+
+  addShoppingBasket10: addShoppingBasket(
+    id: 10,
+    customerId: 7,
+    dateOfPurchase: "2020-10-15",
+  ) {
+    id
+  }
+
+  addShoppingBasketItem1: addShoppingBasketItem(
+    shoppingBasketId: 1,
+    bookId: 2,
+    finalPrice: 22
+  )
+
+  addShoppingBasketItem2: addShoppingBasketItem(
+    shoppingBasketId: 1,
+    bookId: 1,
+    finalPrice: 17
+  )
+
+  addShoppingBasketItem3: addShoppingBasketItem(
+    shoppingBasketId: 1,
+    bookId: 3,
+    finalPrice: 19
+  )
+
+  addShoppingBasketItem4: addShoppingBasketItem(
+    shoppingBasketId: 1,
+    bookId: 4,
+    finalPrice: 13
+  )
+
+  addShoppingBasketItem5: addShoppingBasketItem(
+    shoppingBasketId: 1,
+    bookId: 5,
+    finalPrice: 25
+  )
+
+  addShoppingBasketItem6: addShoppingBasketItem(
+    shoppingBasketId: 2,
+    bookId: 2,
+    finalPrice: 22
+  )
+
+  addShoppingBasketItem7: addShoppingBasketItem(
+    shoppingBasketId: 2,
+    bookId: 3,
+    finalPrice: 19
+  )
+
+  addShoppingBasketItem8: addShoppingBasketItem(
+    shoppingBasketId: 2,
+    bookId: 4,
+    finalPrice: 13
+  )
+
+  addShoppingBasketItem9: addShoppingBasketItem(
+    shoppingBasketId: 2,
+    bookId: 5,
+    finalPrice: 25
+  )
+
+  addShoppingBasketItem26: addShoppingBasketItem(
+    shoppingBasketId: 3,
+    bookId: 7,
+    finalPrice: 42
+  )
+
+  addShoppingBasketItem10: addShoppingBasketItem(
+    shoppingBasketId: 3,
+    bookId: 6,
+    finalPrice: 34
+  )
+
+  addShoppingBasketItem11: addShoppingBasketItem(
+    shoppingBasketId: 4,
+    bookId: 3,
+    finalPrice: 19
+  )
+
+  addShoppingBasketItem12: addShoppingBasketItem(
+    shoppingBasketId: 4,
+    bookId: 6,
+    finalPrice: 34
+  )
+
+  addShoppingBasketItem13: addShoppingBasketItem(
+    shoppingBasketId: 4,
+    bookId: 7,
+    finalPrice: 42
+  )
+
+  addShoppingBasketItem14: addShoppingBasketItem(
+    shoppingBasketId: 5,
+    bookId: 3,
+    finalPrice: 19
+  )
+
+  addShoppingBasketItem15: addShoppingBasketItem(
+    shoppingBasketId: 5,
+    bookId: 4,
+    finalPrice: 13
+  )
+
+  addShoppingBasketItem16: addShoppingBasketItem(
+    shoppingBasketId: 6,
+    bookId: 5,
+    finalPrice: 25
+  )
+
+  addShoppingBasketItem17: addShoppingBasketItem(
+    shoppingBasketId: 6,
+    bookId: 6,
+    finalPrice: 34
+  )
+
+  addShoppingBasketItem18: addShoppingBasketItem(
+    shoppingBasketId: 6,
+    bookId: 7,
+    finalPrice: 42
+  )
+
+  addShoppingBasketItem19: addShoppingBasketItem(
+    shoppingBasketId: 7,
+    bookId: 3,
+    finalPrice: 19
+  )
+
+  addShoppingBasketItem20: addShoppingBasketItem(
+    shoppingBasketId: 7,
+    bookId: 5,
+    finalPrice: 25
+  )
+
+  addShoppingBasketItem21: addShoppingBasketItem(
+    shoppingBasketId: 8,
+    bookId: 3,
+    finalPrice: 19
+  )
+
+  addShoppingBasketItem22: addShoppingBasketItem(
+    shoppingBasketId: 8,
+    bookId: 1,
+    finalPrice: 17
+  )
+
+  addShoppingBasketItem23: addShoppingBasketItem(
+    shoppingBasketId: 9,
+    bookId: 3,
+    finalPrice: 19
+  )
+
+  addShoppingBasketItem24: addShoppingBasketItem(
+    shoppingBasketId: 10,
+    bookId: 2,
+    finalPrice: 22
+  )
+
+  addShoppingBasketItem25: addShoppingBasketItem(
+    shoppingBasketId: 10,
+    bookId: 3,
+    finalPrice: 19
+  )
 }
