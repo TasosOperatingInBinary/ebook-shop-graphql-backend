@@ -3,7 +3,6 @@ const Author = require('../../models/author');
 const Book = require('../../models/book');
 const Customer = require('../../models/customer');
 const Publisher = require('../../models/publisher');
-const ShoppingBasketItem = require('../../models/shopping-basket-item');
 const ShoppingBasket = require('../../models/shopping-basket');
 const Warehouse = require('../../models/warehouse');
 const { 
@@ -26,7 +25,7 @@ const RootQuery = new GraphQLObjectType({
         },
         author: {
             type: AuthorType,
-            args: { id: { type: GraphQLID }},
+            args: { id: { type: GraphQLID } },
             resolve: (parent, args) => {
                 return Author.findById(args.id);
             }
@@ -39,7 +38,7 @@ const RootQuery = new GraphQLObjectType({
         },
         book: {
             type: BookType,
-            args: { id: { type: GraphQLID }},
+            args: { id: { type: GraphQLID } },
             resolve: (parent, args) => {
                 return Book.findById(args.id);
             }
@@ -52,7 +51,7 @@ const RootQuery = new GraphQLObjectType({
         },
         customer: {
             type: CustomerType,
-            args: { id: { type: GraphQLID }},
+            args: { id: { type: GraphQLID } },
             resolve: (parent, args) => {
                 return Customer.findById(args.id);
             }
@@ -65,7 +64,7 @@ const RootQuery = new GraphQLObjectType({
         },
         publisher: {
             type: PublisherType,
-            args: { id: { type: GraphQLID }},
+            args: { id: { type: GraphQLID } },
             resolve: (parent, args) => {
                 return Publisher.findById(args.id);
             }
@@ -78,7 +77,7 @@ const RootQuery = new GraphQLObjectType({
         },
         shoppingBasket: {
             type: ShoppingBasketType,
-            args: { id: { type: GraphQLID }},
+            args: { id: { type: GraphQLID } },
             resolve: (parent, args) => {
                 return ShoppingBasket.findById(args.id);
             }
@@ -91,7 +90,7 @@ const RootQuery = new GraphQLObjectType({
         },
         warehouse: {
             type: WarehouseType,
-            args: { id: { type: GraphQLID }},
+            args: { id: { type: GraphQLID } },
             resolve: (parent, args) => {
                 return Warehouse.findById(args.id);
             }

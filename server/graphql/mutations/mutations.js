@@ -6,15 +6,7 @@ const Publisher = require('../../models/publisher');
 const ShoppingBasketItem = require('../../models/shopping-basket-item');
 const ShoppingBasket = require('../../models/shopping-basket');
 const Warehouse = require('../../models/warehouse');
-const { 
-    AuthorType,
-    BookType,
-    CustomerType,
-    PublisherType,
-    ShoppingBasketItemType,
-    ShoppingBasketType,
-    WarehouseType 
-} = require('../object-types/object-types');
+const { AuthorType, BookType, CustomerType, PublisherType, ShoppingBasketItemType, ShoppingBasketType, WarehouseType } = require('../object-types/object-types');
 
 const Mutation = new GraphQLObjectType({
     name: 'Mutations',
@@ -34,6 +26,16 @@ const Mutation = new GraphQLObjectType({
                     ...args
                 })
                 return author.save();
+            }
+        },
+        updateAuthorEmail: {
+            type: AuthorType,
+            args: {
+                id: { type: GraphQLID },
+                email: { type: GraphQLString }
+            },
+            resolve: (parent, args) => {
+                return Author.findOneAndUpdate({ _id: args.id }, { email: args.email });
             }
         },
         deleteAuthorById: {
@@ -147,15 +149,6 @@ const Mutation = new GraphQLObjectType({
                     ...args
                 })
                 return shoppingBasketItem.save();
-            }
-        },
-        deleteShoppingBasketItemById: {
-            type: ShoppingBasketItemType,
-            args: {
-                id: { type: GraphQLID }
-            },
-            resolve: (parent, args) => {
-                return ShoppingBasketItem.findByIdAndDelete(args.id);
             }
         },
         addShoppingBasket: {

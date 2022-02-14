@@ -111,7 +111,6 @@ const PublisherType = new GraphQLObjectType({
     })
 })
 
-// TODO see if shopping basket item needs to be removed from here
 const ShoppingBasketItemType = new GraphQLObjectType({
     name: 'ShoppingBasketItem',
     fields: () => ({
